@@ -14,6 +14,8 @@ Welcome to the **Grod** development project. Grod is a system designed with the 
 
 This project is built iteratively, one feature or task at a time.
 
+**⚠️ STACK REQUIREMENT:** Vanilla JavaScript + JSDoc. No TypeScript.
+
 1. **Check [Progress](progress.md):** See the current status and find the next task.
 2. **Read the Relevant Spec:** Before coding, read the specific `.md` file in `/spec` related to your task.
 3. **Follow [Instructions](instructions.md):** Ensure you follow the master prompt requirements, especially regarding updating documentation and testability.

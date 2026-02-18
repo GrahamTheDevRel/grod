@@ -14,9 +14,9 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 - [x] Create Start Here documentation
 - [x] Create Master System Instructions
 - [x] Create Progress Tracker
-- [ ] Define Core Type Schemas (`spec/07_schema_types.md`)
-- [ ] Implement In-Memory Event Bus (`spec/05_event_bus.md`)
-- [ ] Implement Basic Logger Dependency
+- [x] Define Core Type Schemas (`spec/07_schema_types.md`)
+- [x] Implement In-Memory Event Bus (`spec/05_event_bus.md`)
+- [x] Implement Basic Logger Dependency
 
 ### Phase 2: Core Infrastructure
 

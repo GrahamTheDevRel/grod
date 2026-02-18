@@ -48,9 +48,10 @@ When a feature or module becomes "usable" (even in a partial state):
 
 ## 🛠️ Coding Standards
 
+- **Vanilla JS & JSDoc ONLY:** Do NOT use TypeScript. Use standard Node.js (CommonJS or ESM as configured) with JSDoc for type hints.
 - **No Classes:** Use objects and functions.
 - **Factory Functions:** `const createModule = (deps) => ({ ... })`.
-- **Types:** Use JSDoc or a dedicated `types.js` to define interfaces.
+- **Types:** Use JSDoc to define types and interfaces for better IDE support.
 - **Events:** Prefer `eventBus.emit('topic', data)` over direct coupling between modules.
 
 ## ❓ Asking for Help
