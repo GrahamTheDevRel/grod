@@ -152,5 +152,32 @@ export const createOrchestrator = ({
 
       return { success: true, message: "Step processed (placeholder)" }
     },
+
+    /**
+     * Finalizes a job and records metrics.
+     * @param {string} jobId
+     * @param {string} status
+     * @returns {Promise<{success: boolean, error?: string}>}
+     */
+    completeJob: async (jobId, status = JOB_STATUS.COMPLETED) => {
+      const job = await store.getJob(jobId)
+      if (!job) {
+        return { success: false, error: "Job not found" }
+      }
+
+      job.status = status
+      job.timing.completed = Date.now()
+      await store.saveJob(job)
+
+      if (performanceMonitor && job.timing.started) {
+        const durationMs = job.timing.completed - job.timing.started
+        performanceMonitor.recordJobDuration(jobId, durationMs, {
+          finalStatus: status,
+        })
+      }
+
+      eventBus.emit("job_completed", { jobId, status })
+      return { success: true }
+    },
   }
 }
