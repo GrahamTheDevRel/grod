@@ -29,6 +29,7 @@ export const CAPABILITY = {
  * @param {Object} deps.logger - System logger
  * @param {Object} [deps.performanceMonitor] - Optional performance monitor
  * @param {Object} [deps.jobLogger] - Optional job logger for cost tracking
+ * @param {Object} [deps.optimizationPipeline] - Optional optimization pipeline for deterministic bypass
  * @returns {Object} The Model Gateway instance
  */
 export const createModelGateway = ({
@@ -37,6 +38,7 @@ export const createModelGateway = ({
   logger,
   performanceMonitor,
   jobLogger,
+  optimizationPipeline,
 }) => {
   /**
    * Internal helper: Validate request against capabilities
@@ -82,6 +84,47 @@ export const createModelGateway = ({
      */
     call: async (request, jobId) => {
       const startTime = Date.now()
+
+      // 0. Check for Optimized Deterministic Bypass
+      if (request.taskType && optimizationPipeline) {
+        const optimizedFn = optimizationPipeline.getOptimizedFunction(
+          request.taskType,
+        )
+        if (optimizedFn) {
+          try {
+            const result = optimizedFn(request.messages)
+            const endTime = Date.now()
+            const latencyMs = endTime - startTime
+
+            logger.info(
+              `Using deterministic bypass for taskType: ${request.taskType}`,
+            )
+
+            return {
+              success: true,
+              data: {
+                content:
+                  typeof result === "string" ? result : JSON.stringify(result),
+              },
+              meta: {
+                modelId: "deterministic",
+                provider: "internal",
+                latencyMs,
+                usage: {
+                  promptTokens: 0,
+                  completionTokens: 0,
+                  totalTokens: 0,
+                  cost: 0,
+                },
+              },
+            }
+          } catch (error) {
+            logger.error(
+              `Deterministic bypass failed for ${request.taskType}: ${error.message}. Falling back to LLM.`,
+            )
+          }
+        }
+      }
 
       // 1. Validate
       const validation = validateCapabilities(request.modelId, request)
