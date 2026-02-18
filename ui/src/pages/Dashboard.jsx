@@ -13,13 +13,14 @@ import {
   Box,
   Card,
   CardContent,
+  Button,
 } from "@mui/material"
 import { io } from "socket.io-client"
 import axios from "axios"
 
 const socket = io("http://localhost:3001")
 
-function Dashboard() {
+function Dashboard({ onOpenDesigner }) {
   const [jobs, setJobs] = useState([])
   const [metrics, setMetrics] = useState({
     performance: {},
@@ -51,9 +52,19 @@ function Dashboard() {
 
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Grod Dashboard
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 4,
+        }}
+      >
+        <Typography variant="h4">Grod Dashboard</Typography>
+        <Button variant="contained" color="primary" onClick={onOpenDesigner}>
+          Open Designer
+        </Button>
+      </Box>
 
       <Grid container spacing={3}>
         {/* Metrics Cards */}

@@ -38,7 +38,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 ### Phase 5: Visuals & UI
 
 - [x] Visual Interface / Dashboard
-- [ ] Visual Designer (Workflow Builder)
+- [x] Visual Designer (Workflow Builder)
 
 ---
 
@@ -58,6 +58,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 - _2026-02-18:_ Implemented Optimization Pipeline with shadow testing and deterministic bypass.
 - _2026-02-18:_ Implemented Performance Monitor with percentile tracking and job duration alerts.
 - _2026-02-18:_ Implemented Visual Interface Dashboard and Express API server with WebSocket support.
+- _2026-02-18:_ Implemented Visual Designer (Workflow Builder) using React Flow with drag-and-drop toolbox and JSON export.
 
 ## 🧪 Manual Testing Log
 
