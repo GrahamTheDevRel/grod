@@ -4,6 +4,8 @@
 
 This module tracks spending and enforces budget limits. It prevents runaway costs by checking budgets _before_ allowing actions and recording costs _after_ they occur.
 
+[improvement] Instead of money, use "energy" or "tokens" - this prevents the AI focusing on the "money" aspect too much.
+
 ## Principles
 
 - **Hierarchical Budgets:** Global -> Job -> Agent/Task.

@@ -33,6 +33,8 @@ Periodically (e.g., nightly batch job), the Analysis Engine reviews high-volume 
 
 **Heuristics for Optimization candidates:**
 
+[improvement] This should be configurable / have a user-led option i.e. a user can say "optimise this" rather than waiting for automated optimisation to kick in.
+
 - **High Volume:** Tasks running > 100 times/day.
 - **Low Variance:** Outputs are structurally very similar.
 - **High Cost:** Tasks consuming significant budget.

@@ -2,7 +2,7 @@
 
 _Chronological log of major decisions and their context._
 
-## [DATE] 001. Functional over Object-Oriented
+## 2026-02-18 001. Functional over Object-Oriented
 
 **Decision:** We will use functional programming patterns (factory functions, closures) instead of ES6 Classes.
 **Context:** We want to ensure 100% testability and enforce strict dependency injection. Classes often encourage internal state mutation and tight coupling.
@@ -11,7 +11,7 @@ _Chronological log of major decisions and their context._
 - All modules must expose a `createX({ deps })` factory.
 - State must be managed explicitly (passed through or held in closure).
 
-## [DATE] 002. Drift to Deterministic
+## 2026-02-18 002. Drift to Deterministic
 
 **Decision:** AI should be the "glue" or the "generator", but not the "engine" for everything.
 **Context:** AI is probabilistic. To build reliable systems, we need to constrain the AI's output into deterministic structures (JSON, Code) that are then executed by rigid code.
@@ -20,7 +20,7 @@ _Chronological log of major decisions and their context._
 - Strict schemas for all LLM interactions.
 - Validation steps are mandatory after every generation.
 
-## [DATE] 003. Deep Tracing & Causality
+## 2026-02-18 003. Deep Tracing & Causality
 
 **Decision:** The Event Bus will enforce `traceId` and `parentId` on every event.
 **Context:** In complex agentic workflows, side effects (mutations, API calls) can happen asynchronously. Debugging "why did the context change?" is impossible without a causal link.
@@ -29,3 +29,13 @@ _Chronological log of major decisions and their context._
 - All `emit` calls require awareness of the "triggering event" (the parent).
 - Handlers must be wrapped to ensure they don't break the trace chain.
 - State mutations must explicitly emit `state:updated` events to be visible in the trace.
+
+## 2026-02-18 004. Master Instructions & Self-Updating Progress
+
+**Decision:** We will use a dedicated `instructions.md` and `progress.md` to guide LLM agents and maintain project state.
+**Context:** To allow for iterative, one-feature-at-a-time development, the system needs a way to "remember" its current task, bugs, and next steps across different sessions.
+**Consequences:**
+
+- Agents must update `progress.md` upon completion of any task.
+- `instructions.md` serves as the primary system prompt.
+- Manual testing protocols are standardized within the progress tracker.

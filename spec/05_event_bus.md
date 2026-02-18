@@ -4,6 +4,8 @@
 
 The Event Bus is the central nervous system. It decouples components, allowing for observation, logging, and reactive behaviors without tight coupling.
 
+[improvement] the events system should have an external API so we can swap another events system / integrate an external events system easily.
+
 **Key Requirement:** We must be able to trace a chain of events and state mutations to understand _why_ something happened.
 
 ## Principles
