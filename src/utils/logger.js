@@ -30,6 +30,4 @@ const createConsoleLogger = (minLevel = "info") => {
   }
 }
 
-module.exports = {
-  createConsoleLogger,
-}
+export { createConsoleLogger }

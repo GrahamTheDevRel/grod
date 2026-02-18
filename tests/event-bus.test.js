@@ -1,6 +1,6 @@
-const { createEventBus } = require("../src/events/event-bus")
-const { createConsoleLogger } = require("../src/utils/logger")
-const assert = require("assert")
+import { createEventBus } from "../src/events/event-bus.js"
+import { createConsoleLogger } from "../src/utils/logger.js"
+import assert from "node:assert"
 
 describe("Event Bus Integration", () => {
   it("should propagate traceId and spanId correctly", (done) => {

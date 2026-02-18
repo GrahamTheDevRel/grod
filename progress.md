@@ -4,8 +4,8 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 
 ## 🚀 Current Status
 
-- **Current Focus:** Project Initialization & Documentation
-- **Next Task:** Initialize core directory structure and Event Bus interface
+- **Current Focus:** Core Infrastructure Implementation
+- **Next Task:** Job Orchestrator (Basic Loop)
 
 ## 🏁 Implementation Checklist
 
@@ -17,10 +17,11 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 - [x] Define Core Type Schemas (`spec/07_schema_types.md`)
 - [x] Implement In-Memory Event Bus (`spec/05_event_bus.md`)
 - [x] Implement Basic Logger Dependency
+- [x] Convert project to ESM and update existing modules/tests
 
 ### Phase 2: Core Infrastructure
 
-- [ ] Model Gateway (Provider-agnostic calling)
+- [x] Model Gateway (Provider-agnostic calling)
 - [ ] Job Orchestrator (Basic Loop)
 - [ ] Cost & Budget Manager (Basic tracking)
 
@@ -47,6 +48,8 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 ## 📓 Recent Decisions
 
 - _2026-02-18:_ Initialized documentation structure with `start-here.md`, `instructions.md`, and `progress.md`.
+- _2026-02-18:_ Implemented Model Gateway factory, constants, and capability validation.
+- _2026-02-18:_ Converted project to ESM (`"type": "module"`) to support modern imports.
 
 ## 🧪 Manual Testing Log
 

@@ -1,4 +1,4 @@
-const { z } = require("zod")
+import { z } from "zod"
 
 /**
  * @template T
@@ -110,7 +110,7 @@ const EventSchema = z.object({
 
 /** @typedef {import("zod").infer<typeof EventSchema>} Event */
 
-module.exports = {
+export {
   ToolCallSchema,
   AgentMessageSchema,
   ModelConfigSchema,
