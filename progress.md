@@ -5,7 +5,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 ## 🚀 Current Status
 
 - **Current Focus:** Core Infrastructure Implementation
-- **Next Task:** Cost & Budget Manager (Basic tracking)
+- **Next Task:** Composable Agent Interface
 
 ## 🏁 Implementation Checklist
 
@@ -23,7 +23,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 
 - [x] Model Gateway (Provider-agnostic calling)
 - [x] Job Orchestrator (Basic Loop)
-- [ ] Cost & Budget Manager (Basic tracking)
+- [x] Cost & Budget Manager (Basic tracking)
 
 ### Phase 3: Agent Interface & Memory
 
@@ -51,12 +51,13 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 - _2026-02-18:_ Implemented Model Gateway factory, constants, and capability validation.
 - _2026-02-18:_ Converted project to ESM (`"type": "module"`) to support modern imports.
 - _2026-02-18:_ Implemented Job Orchestrator basic state management and factory.
+- _2026-02-18:_ Implemented Cost & Budget Manager with hierarchical allocation and spend tracking.
 
 ## 🧪 Manual Testing Log
 
-| Feature | Command | Status | Notes                   |
-| :------ | :------ | :----- | :---------------------- |
-| N/A     | N/A     | N/A    | No executable code yet. |
+| Feature        | Command                                  | Status | Notes                          |
+| :------------- | :--------------------------------------- | :----- | :----------------------------- |
+| Budget Manager | `npx mocha tests/budget-manager.test.js` | Pass   | Basic tracking and allocation. |
 
 ## 🛠️ Infrastructure Requirements
 
