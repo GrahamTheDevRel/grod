@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/GrahamTheDevRel/grod#readme",
   "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3",
     "uuid": "^13.0.0",
     "zod": "^4.3.6"
   },
