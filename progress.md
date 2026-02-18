@@ -5,7 +5,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 ## 🚀 Current Status
 
 - **Current Focus:** Core Infrastructure Implementation
-- **Next Task:** Memory Store (Basic implementation)
+- **Next Task:** Optimization Pipeline
 
 ## 🏁 Implementation Checklist
 
@@ -28,7 +28,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 ### Phase 3: Agent Interface & Memory
 
 - [x] Composable Agent Interface
-- [ ] Memory Store (Basic implementation)
+- [x] Memory Store (Basic implementation)
 
 ### Phase 4: Optimization & Monitoring
 
@@ -53,6 +53,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 - _2026-02-18:_ Implemented Job Orchestrator basic state management and factory.
 - _2026-02-18:_ Implemented Cost & Budget Manager with hierarchical allocation and spend tracking.
 - _2026-02-18:_ Implemented Composable Agent Interface with factory and pipeline support.
+- _2026-02-18:_ Implemented Memory Store with checkpointing and in-memory adapter.
 
 ## 🧪 Manual Testing Log
 
@@ -60,6 +61,7 @@ This file tracks the implementation of the Grod system. Use this to determine "W
 | :-------------- | :--------------------------------------- | :----- | :----------------------------------- |
 | Budget Manager  | `npx mocha tests/budget-manager.test.js` | Pass   | Basic tracking and allocation.       |
 | Agent Interface | `npx mocha tests/agent-factory.test.js`  | Pass   | Factory and Pipeline implementation. |
+| Memory Store    | `npx mocha tests/memory-store.test.js`   | Pass   | Context, Logs, and Checkpoints.      |
 
 ## 🛠️ Infrastructure Requirements
 
